@@ -19,6 +19,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ForgotPasswordComponent } from './auth-components/forgot-password/forgot-password.component';
+import { ContactUsComponent } from './auth-components/contact-us/contact-us.component';
+
+
 
 registerLocaleData(en);
 
@@ -26,7 +30,9 @@ registerLocaleData(en);
   declarations: [
     AppComponent,
     SignupComponent,
-    LoginComponent
+    LoginComponent,
+    ForgotPasswordComponent,
+    ContactUsComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,8 +46,7 @@ registerLocaleData(en);
     MatFormFieldModule,
     MatButtonModule,
     MatIconModule,
-    MatCardModule,
-    
+    MatCardModule,    
   ],
   providers: [
     { provide: NZ_I18N, useValue: en_US }

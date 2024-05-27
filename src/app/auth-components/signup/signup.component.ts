@@ -12,8 +12,6 @@ import { AuthService } from 'src/app/auth-services/auth-serive/auth.service';
   styleUrls: ['./signup.component.css'],
 })
 export class SignupComponent implements OnInit {
-
-
   isSpinning: boolean;
   validateForm: FormGroup;
   primary: string = "primary"; // Define primary property
@@ -48,8 +46,6 @@ hidePassword: any;
     }
     return password.value === confirm.value ? null : { passwordMismatch: true };
   };
-
-  
 
   signup() { 
     

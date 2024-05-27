@@ -39,7 +39,8 @@ export class AuthService {
     return this.http.post(BASIC_URL + "api/auth/signup", SignupRequest).pipe(
       catchError(error => {
         // Handle error, log it, or rethrow
-        return throwError(error);
+        const err = new Error('test'); 
+        return throwError(() => err);
       })
     );
   }
@@ -48,13 +49,39 @@ export class AuthService {
     return this.http.post(BASIC_URL + "api/auth/login", loginRequest).pipe(
       catchError(error => {
         // Handle error, log it, or rethrow
-        return throwError(error);
+        const err = new Error('test'); 
+        return throwError(() => err);
       })
     );
   }
+
+ 
+  forgotPassword(email: string): Observable<any> {
+    return this.http.post(`BASIC_URL + " "}/forgot-password`, { email });
+  }
+
+  verifyCode(email: string, code: string): Observable<any> {
+    return this.http.post(`BASIC_URL + " "}/verify-code`, { email, code });
+  }
+
+  resetPassword(email: string, newPassword: string): Observable<any> {
+    return this.http.post(`BASIC_URL + " "}/reset-password`, { email, newPassword });
+  }
+
+  sendPasswordChangeNotification(email: string): Observable<any> {
+    return this.http.post(`BASIC_URL + " "}/password-change-notification`, { email });
+  }
 }
 
-function deprecated(target: typeof AuthService): void | typeof AuthService {
-  throw new Error('Function not implemented.');
-}
+// function deprecated(target: typeof AuthService): void | typeof AuthService {
+//   throw new Error('Function not implemented.');
+// }
+
+// forgotpassword(emailId: any) {
+//   return this.http.post(`${this.apiUrl}/forgotpassword`, { emailId });
+// }
+
+// function forgotpassword(emailId: any, string: any) {
+//   throw new Error('Function not implemented.');
+// }
 
