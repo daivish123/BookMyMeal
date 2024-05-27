@@ -33,7 +33,7 @@ hidePassword: any;
       name: ["", Validators.required],
       emailId: ["", [Validators.required, Validators.email]],
       contactNo: ["", [Validators.required, Validators.pattern('[0-9]{10}')]],
-      password: ["", Validators.required],
+      password: ["", Validators.required, Validators.pattern(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{8,}$/)],
       checkPassword: ["", [Validators.required, this.confirmationValidator]]
     });
   }
